@@ -1,0 +1,295 @@
+/*
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+*/
+@font-face {
+     font-family: Cinzel;
+     src: url('../fonts/Cinzel-Regular.ttf');
+}
+
+@font-face {
+     font-family: Avenir;
+     src: url('../fonts/AvenirLTStd-Book.otf');
+}
+
+@font-face {
+     font-family: Avenir;
+     src: url('../fonts/AvenirLTStd-Medium.otf');
+}
+
+@font-face {
+     font-family: Avenir;
+     src: url('../fonts/AvenirLTStd-Roman.otf');
+}
+
+@media only screen and (min-width: 1024px) {
+    #menu {
+      display: flex; /* 1 */
+    }
+
+    #menu li {
+      border-width: 0 1px 0 0; /* 2 */
+    }
+
+    #menu li a {
+      padding: 1.25em 1.5em;
+    }  
+}
+
+body {
+	background-color: #FFF12B;
+	font-family: Avenir;
+	margin-left: 0px;
+}
+
+.navbar {
+	margin-top: 0px;
+}
+
+#logon {
+	margin-left: 5%;
+	padding: 10px;
+	margin-top: 120px;
+	background-color: #FFF12B;
+	width: 90%;
+	height: 165px;
+	/* border: solid 2px black; */
+}
+
+#logon input {
+	margin-left: 1%;
+	margin-top: 5px;
+	font-size: 1.5em;
+	font-weight: bold;
+	width: 98%;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: solid 2px black;
+}
+
+input[type="text"]{
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: solid 2px black;
+}
+
+input[type="password"]{
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: solid 2px black;
+}
+
+#fronteira {
+	/* margin-left: 25%; */
+	left:0;
+	margin-left: 0;
+	padding: 10px;
+	margin-top: 25px;
+	width: 100%; //415px
+	/* height: 490px; */
+	background-color: #FFF12B;
+	/* background-image:url("../img/fundo.png"); */
+
+}
+
+#btnRedirecionar {
+	position:relative;
+	float:left;
+	top:125px;
+	width: 100%;
+}
+
+#underload {
+  opacity: 1;
+  transition: opacity 1s; 
+}
+
+#underload.fade {
+  opacity: 0;
+}
+
+#pergunta {
+	margin-top: 50px;
+	font-size: 2em;
+	height: 20%;
+	width: 100%;
+	font-weight: bold;
+	text-align: justify;
+	color: black;
+}
+
+#alternativas{
+	padding: 5px;
+	width: 100%;
+	height: 270px; /* 9 linhas */
+	overflow: auto;
+}
+
+/* Demonstrate a "mostly customized" scrollbar
+ * (won't be visible otherwise if width/height is specified) */
+#alternativas::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #aaa; /* or add it to the track */
+}
+
+/* Add a thumb */
+#alternativas::-webkit-scrollbar-thumb {
+    background: #000;
+}
+
+.linhaAlternativa {
+	float: left;
+	position: relative;
+	padding-top: 5px;
+	margin: 1px 1px 1px 1px;
+	width: 100%;
+	height: 30px;
+	max-height: 500px;
+	font-weight: bold;
+	color: black;
+}
+
+.barrabotoes {
+	width: 100%;
+	height: 30px;
+}
+
+.button {
+	position: relative;
+	float: left;
+	margin-top: 10px;
+	margin-left: 2%;
+	width: 40%;
+	height: 100%;
+	font-weight: bold;
+	/* background-color: white; */
+	transition: all 0.5s;
+	color: black;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  font-size: 1.25em;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.barrabotoes .button .btnesquerdoestreito {
+	height: 100%;
+	width: 80%;
+	margin-left: 2%;
+	background-color: white;
+}
+
+.barrabotoes .button .btnesquerdolargo {
+	height: 100%;
+	width: 80%;
+	margin-left: 1%;
+	background-color: white;
+}
+
+.barrabotoes .button .btndireito {
+	height: 100%;
+	width: 150px;
+	margin-left: 10%;
+	background-color: white;
+}
+
+.barrabotoes .button .btnesquerdo {
+	height: 100%;
+	width: 150px;
+	margin-left: 10%;
+	background-color: white;
+}
+
+/**************************
+* Menu
+***************************/
+#topbar {
+  line-height: 1;
+  width:100%;
+}
+
+#menu {
+  font-family:Rajdhani;  
+  background-color: gray;
+  color: white;
+  width:100%;
+}
+
+#menu li {
+  display: block;
+  border-style: solid; /* 6 */
+  border-width: 0 0 1px;
+  margin: 0px;  
+}
+
+#menu li a {
+  display: block;
+  text-decoration: none; /* 3 */
+  color: currentColor; /* 4 */
+  padding: 1em; /* 5 */
+  margin: 0px;  
+}
+
+/*****************************************************************************
+* LOADER
+******************************************************************************
+*/
+/*
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid red;
+  border-radius: 50%;
+  border-top: 16px solid black;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s;
+}
+
+*/

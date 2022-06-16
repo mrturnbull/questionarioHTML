@@ -1,0 +1,99 @@
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta http-equiv="Cache-Control" content="no-store" />
+<title>SensorX - BackOffice</title>
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+-->
+<script src="../js/jquery-1.8.0.js"></script>
+<script src="../js/bootstrap.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link href="../css/qa.css" rel="stylesheet">
+</head>
+<body onload="showPerguntas()">
+<div id="perguntas" style="margin-top:50px;margin-left:1%;width:98%;height:33%;overflow:auto;border:solid 1px black"></div>
+<div style="margin-top:15px;width:100%">
+  <input type="button" value="Adicionar pergunta" onclick="showAddPerguntaDialog()" style="float:left;margin-left:1%;width:30%">
+  <input type="button" value="Apagar pergunta"  onclick="delPergunta()"  style="float:left;margin-left:1%;width:30%">
+  <input type="button" value="Salvar ordem"  onclick="salvarOrdemPerguntas()"  style="float:left;margin-left:1%;width:30%">
+</div>
+<div id="alternativas" style="margin-top:50px;position:relative;margin-left:1%;width:98%;height:33%;overflow:auto;border:solid 1px black"></div>
+<div style="margin-top:15px;width:100%">
+  <input type="button" value="Adicionar alternativa" onclick="showAddAlternativaDialog()" style="float:left;margin-left:1%;width:32%">
+  <input type="button" value="Apagar alternativa"  onclick="delAlternativa()"  style="float:left;margin-left:1%;width:32%">
+  <input type="button" value="Adicionar ao dicionario de regras" onclick="alert('Under construction!')" style="float:left;margin-left:1%;width:32%">
+</div>
+
+<div id="addPerguntaDialog" style="visibility:hidden;top:200px;margin-left:25%;width:50%;height:300px;position:absolute;z-index:5;border:solid 5px black;background-color:white">
+  <div style="float:left;width:100%;height:30px;background-color:black"><center><span style="color:white">Nova Pergunta</span></center></div>
+  <div>Label:<textarea id="perguntaEnunciado" style="margin-left:1%;width:98%;height:150px"></textarea></div>
+  <div><input type="checkbox" id="chkRespObrig" name="chkRespObrig" CHECKED>Resposta obrigatória</div>
+  <div style="margin-top:15px;width:100%">
+    <input type="button" value="Cancelar" onclick="hideAddPerguntaDialog()" style="float:left;margin-left:1%;width:48%">
+    <input type="button" value="OK" onclick="addPergunta()"   style="float:left;margin-left:1%;width:49%">
+  </div>
+</div>
+<div id="addAlternativaDialog" style="visibility:hidden;top:200px;margin-left:25%;width:50%;height:500px;position:absolute;z-index:5;border:solid 5px black;background-color:white">
+ <!-- <div class="comboboxopcao">SAO PAULO</div>
+  <div class="comboboxopcao">SANTA CATARINA</div>
+  -->
+  <div style="float:left;width:100%;height:30px;background-color:black"><center><span style="color:white">Nova Alternativa</span></center></div>
+  Label:<textarea id="alternativaEnunciado" style="margin-left:1%;width:98%;height:100px" maxlength=50></textarea>
+  <div style="margin-left:5px;height:30px;padding-top:10px">
+    <input type="radio" name="tipoControle" id="tipoControle1" value="RADIO" onclick="copyAlternativaEnunciado()">&nbsp;<span>Radio</span>
+    Valor:&nbsp;<input type="text" name="radioValor" id="radioValor" size="50" maxlegth="50" DISABLED/>
+  </div>
+  <div style="margin-left:5px;height:30px;padding-top:10px">
+    <input type="radio" name="tipoControle" id="tipoControle2" value="CHECKBOX">&nbsp;<span>Checkbox</span>
+    Valor:&nbsp;<input type="text" name="checkboxValor" id="checkboxValor" size="50" maxlegth="50" DISABLED/>
+  </div>
+  <div style="margin-left:5px;padding-top:10px">
+    <input type="radio" name="tipoControle" id="tipoControle3" value="RANGE">&nbsp;<span>Slider</span>
+    De:&nbsp;<input type="text" name="minimo" id="minimo" size="20" maxlegth="20"/>&nbsp;Até&nbsp;<input type="text" name="maximo" id="maximo"  size="20" maxlegth="20"/>
+  </div>
+  <div style="margin-left:5px;padding-top:10px">
+    <input type="radio" name="tipoControle" id="tipoControle4" value="TEXT">&nbsp;<span>Texto curto</span>
+    &nbsp;Tamanho Maximo:&nbsp;<input type="text" name="tamMaxText" id="tamMaxText" size="2" maxlegth="2" value="50"/>
+    <select id="tipoMascara" name="tipoMascara"><option value="TEXT">Sem mascara</option><option value="CEP">CEP com sep.</option><option value="CNPJ">CNPJ com sep.</option><option value="CPF">CPF com sep.</option><option value="DATA">Data com sep.</option></select>
+  </div>
+  <div style="margin-left:5px;padding-top:10px">
+    <input type="radio" name="tipoControle" id="tipoControle5" value="TEXTAREA">&nbsp;<span>Comentario</span>
+    &nbsp;Tamanho Maximo:&nbsp;<input type="text" name="tamMaxTextarea" id="tamMaxTextarea" size="5" maxlegth="5" value="9000"/>
+  </div>
+  <div style="margin-left:5px;padding-top:10px">
+    <input type="radio" name="tipoControle" id="tipoControle6" value="PASSWORD">&nbsp;<span>Senha</span>
+    &nbsp;Tamanho Maximo:&nbsp;<input type="text" name="tamMaxPassword" id="tamMaxPassword" size="2" maxlegth="2" value="8"/>
+  </div>
+  <div style="margin-left:5px;padding-top:10px">
+    <input type="radio" name="tipoControle" id="tipoControle7" value="SELECT">&nbsp;<span>Combobox</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="ancoraCombobox" href="javascript:showDlgImportacaoItens()">Importar itens</a>
+  </div>
+  <div style="margin-top:15px;width:100%">
+    <input type="button" value="Cancelar" onclick="hideAddAlternativaDialog()" style="float:left;margin-left:1%;width:48%">
+    <input type="button" value="OK" onclick="addAlternativa()"   style="float:left;margin-left:1%;width:49%">
+  </div>
+</div>
+<!-- Caixa de Dialogo -->
+<div id="dialogoUpload" class="dialogo">
+  <form id="frmUpload" enctype="multipart/form-data" action="http://dragon.kinghost.net/questionario/upload">
+  <div style="background-color:black">
+    <div><span>Importar</span></div>
+    <div><a id="btnFecharDialogo" onclick="javascript:fecharDlgImportacao()"><span>X</span></a></div>
+  </div>
+  <div style="padding-left: 10px"></br>
+    Escolha o arquivo e clique Enviar
+    <div style="position:absolute;float:left"><input id="arquivo" type="file" name="arquivo" /></div>
+    <div style="position:absolute;float:left;left:400px"><input id="btnEnviarArquivo" type="button" value="Enviar" /></div>
+  </div>
+  </form>
+</div>
+<input type="hidden" id="hidAlternativaId" name="hidAlternativaId" value="1">
+<script src="../js/qa.js"></script>
+<!-- <script src="../js/upload.js"></script> -->
+</body>
+</html>

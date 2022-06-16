@@ -1,0 +1,104 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta property="og:title" content="SensorX"/>
+<meta property="og:description" content="Software for Marketing Research"/>
+<meta property="og:image" content="http://www.dunedin.com.br/questionario/img/ogtestemill.jpeg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="420" />
+<meta property="og:image:height" content="470" />
+<meta property="og:image:alt" content="Software for Marketing Research" />
+<title>Dunedin Software</title>
+<!--
+<script src="js/jquery-1.8.0.js"></script>
+<script src="js/bootstrap.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css">
+-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link href="css/testecarne.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-yellow">
+  <div class="container">
+  <a class="navbar-brand" href="#"><img src="img/logoih.png" width="300px" height="57px" ></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação" style="background-color:white">
+    <span class="navbar-toggler-icon" ></span>
+  </button>
+  <div class="collapse navbar-collapse" id="textoNavbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="javascript:alert('Em breve !');"><span style="color:black">Sobre</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#localizacao"><span style="color:black">Locatários</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:alert('Em breve !');"><span style="color:black">Investidores</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:alert('Em breve !');"><span style="color:black">Ajuda</span></a>
+      </li>
+      <!--
+      <li class="nav-item">
+        <a class="nav-link" href="index.html"><span style="color:white">English</span></a>
+      </li>
+  -->
+    </ul>
+    <!--
+    <span class="navbar-text">
+      Texto navbar com um elemento inline
+    </span>
+  -->
+  </div></div>
+</nav>
+<div class="container" style="background-color:#FFF12B;width:100%;margin-left:0;margin-right:0">
+	<div id="fronteira">
+    <div id="logon">
+      <div>
+        <span style="color:black;font-family: Arial;font-size:1.5em;">Bem-vindo a InvestHabit !</br>Uma nova experiência em locação a curto e médio prazo para moradia a serviço da capital de São Paulo</span>
+      </div>
+      <div class="barrabotoes">
+        <div id="ladoesquerdo" class="button"><button id="btnLogin" name="btnLogin" class="btnesquerdoestreito">Entrar</button></div>
+      </div>
+    </div>
+	</div>
+</div>
+<div id="imgDestak" style="visibility:hidden;z-index:50;position:absolute;top:100px;left:5%;width:90%;height:500px;background-color:grey">
+	<div style="width:100%;height:35px;background-color: white">
+		<div style="float:left;width:calc(100% - 30px)">&nbsp;</div>
+		<div style="float:left;width:30px%;font-size:30px;padding:1px"><a href="javascript:hideImgDestak()">X</a></div>
+	</div>
+	<div id="galeriaStudio"></div>	
+</div>
+<canvas id="horizonteinf" width="1250" height="125"></canvas>
+<div id="rodape" style="float:left;background-color: #2BAAFF;left:0;width:1250px;height:253px"></div>
+<div id="pesquisa" style="position:absolute;top:0px;visibility:hidden">
+	<div id="loader"></div>
+	<div id="underload" class="animate-bottom">
+		<div id="pergunta"></div>
+		<div id="alternativas"></div>
+	</div>
+	<div class="barrabotoes">
+		<div id="ladoesquerdo" class="button" style="visibility:hidden">
+			<button id="btnAntPergunta" name="btnAntPergunta" class="btnesquerdo"><span>Anterior</span></button>
+		</div>
+		<div id="ladodireito" class="button">
+			<button id="btnProxPergunta" name="btnProxPergunta" class="btndireito"><span>INICIAR</span></button>
+		</div>		
+	</div>
+</div>
+<input type="hidden" id="hidUsuarioId"  name="hidUsuarioId">
+<input type="hidden" id="hidOrdemId" 	name="hidOrdemId" value="0">
+<input type="hidden" id="hidOrdemIdOld" name="hidOrdemIdOld" value="0">
+<script src="js/decor.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="js/jquery.mask.min.js"></script>
+<script src="js/testecarne.js"></script>	
+</body>
+</html>

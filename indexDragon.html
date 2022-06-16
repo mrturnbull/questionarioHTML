@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta property="og:title" content="SensorX"/>
+<meta property="og:description" content="Software for Marketing Research"/>
+<meta property="og:image" content="http://www.dunedin.com.br/questionario/img/ogtestemill.jpeg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="420" />
+<meta property="og:image:height" content="470" />
+<meta property="og:image:alt" content="Software for Marketing Research" />
+<title>Dunedin Software</title>
+<script src="js/jquery-1.8.0.js"></script>
+<script src="js/bootstrap.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link href="css/testecarne.css" rel="stylesheet">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+	<div class="container" style="background-color:white;width:100%">
+		<div class="navbar-header" style="background-color:white">
+			<button type="button" class="pull-left navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="margin-left: 5px; background-color:black">
+			<span class="icon-bar" style="background-color:white"></span>
+			<span class="icon-bar" style="background-color:white"></span>
+			<span class="icon-bar" style="background-color:white"></span>
+			</button>
+			<a class="navbar-brand" href="#"><span style="color:black;font-size:1.5em">RH</span></a>
+		</div>
+		<div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+          	<li><a href="#"><span style="color:black">Sobre</span></a></li>
+			<li><a href="javascript:alert('E-mail para contato:\n\nmarketing.dunedin@gmail.com')"><span style="color:black">Contato</span></a></li>
+			<li><a href="#"><span style="color:black">Ajuda</span></a></li>
+          </ul>
+        </div>
+	</div>
+	<div class="container" style="background-color:white">
+		<div id="fronteira">
+			<div id="logon">
+				<div id="loader" style="display:none"></div>
+				<div class="linha1"><input type="text"     id="txtCPF"   name="txtCPF"   maxlength="11" placeholder="CPF"></div>
+				<div class="linha2"><input type="password" id="txtSenha" name="txtSenha" maxlength="8" placeholder="Senha"></div>
+				<div class="barrabotoes">
+					<div id="ladoesquerdo" class="button"><button id="btnLogin" name="btnLogin" class="btnesquerdoestreito">1.a vez</button></div>
+					<div id="ladodireito" class="button"><button id="btnCadastrado" name="btnCadastrado" class="btndireito">Cadastrada</button></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="pesquisa" style="visibility:hidden">
+	<div id="loader"></div>
+	<div id="underload" class="animate-bottom">
+		<div id="pergunta"></div>
+		<div id="alternativas"></div>
+	</div>
+	<div class="barrabotoes">
+		<div id="ladoesquerdo" class="button" style="visibility:hidden">
+			<button id="btnAntPergunta" name="btnAntPergunta" class="btnesquerdo"><span>Anterior</span></button>
+		</div>
+		<div id="ladodireito" class="button">
+			<button id="btnProxPergunta" name="btnProxPergunta" class="btndireito"><span>INICIAR</span></button>
+		</div>		
+	</div>
+</div>
+<input type="hidden" id="hidUsuarioId"  name="hidUsuarioId">
+<input type="hidden" id="hidOrdemId" 	name="hidOrdemId" value="0">
+<input type="hidden" id="hidOrdemIdOld" name="hidOrdemIdOld" value="0">
+<script src="js/jquery.mask.min.js"></script>
+<script src="js/testecarne.js"></script>
+</body>
+</html>
